@@ -5,6 +5,8 @@ import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+import { SecondPage } from '../second/second';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 declare var cordova: any;
 
@@ -16,7 +18,37 @@ export class HomePage {
     lastImage: string = null;
     loading: Loading;
 
-    constructor(public navCtrl: NavController, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) { }
+    constructor(public navCtrl: NavController, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController, private nativePageTransitions: NativePageTransitions) { }
+
+    public secondPageFlip() {
+        let options: NativeTransitionOptions = {
+            direction: 'up',
+            duration: 600
+        };
+        this.nativePageTransitions.flip(options);
+        this.navCtrl.setRoot(SecondPage);
+    }
+
+    public secondPageCurl() {
+        let options: NativeTransitionOptions = {
+            direction: 'up',
+            duration: 600
+        };
+        this.nativePageTransitions.curl(options);
+        this.navCtrl.setRoot(SecondPage);
+    }
+
+    public secondPageSlide() {
+        let options: NativeTransitionOptions = {
+            direction: 'left',
+            duration: 400,
+            slowdownfactor: -1,
+            iosdelay: 50
+        };
+
+        this.nativePageTransitions.slide(options);
+        this.navCtrl.setRoot(SecondPage);
+    }
 
     public presentActionSheet() {
         let actionSheet = this.actionSheetCtrl.create({

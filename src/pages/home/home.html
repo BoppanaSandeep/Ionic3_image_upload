@@ -9,6 +9,15 @@
 <ion-content padding>
     <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
     <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
+    <button ion-button icon-left (click)="secondPageFlip()">
+        Flip
+      </button>
+    <button ion-button icon-left (click)="secondPageCurl()">
+        Curl
+      </button>
+    <button ion-button icon-left (click)="secondPageSlide()">
+        Slide
+      </button>
 </ion-content>
 
 <ion-footer>
