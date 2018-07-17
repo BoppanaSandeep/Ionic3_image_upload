@@ -76,7 +76,7 @@ export class HomePage {
 
   public presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
-      title: "Select Image Sources dsfsdf",
+      title: "Select Image Sources dsfsdf xvdsfgsdf sdf sdf s sd sdf sfe",
       buttons: [
         {
           text: "Load from Library",
